@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,14 +26,55 @@
     header h1 {
       font-size: 1.8rem;
     }
-    nav a {
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav a, .dropbtn {
       margin: 0 1rem;
       text-decoration: none;
       color: #aaa;
       font-weight: 600;
+      cursor: pointer;
+      position: relative;
     }
-    nav a:hover {
+    nav a:hover, .dropbtn:hover {
       color: #fff;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #26224a;
+      min-width: 120px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      z-index: 1;
+      right: 0;
+    }
+    .dropdown-content a {
+      color: #aaa;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .dropdown-content a:hover {
+      background: #1a1733;
+      color: #fff;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    #username {
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      color: #45ffbd;
+      margin: 0 1rem;
     }
     .hero {
       text-align: center;
@@ -110,88 +151,65 @@
       text-align: center;
       padding: 4rem 2rem;
     }
-    .download-launcher h2 {
-      margin-bottom: 1rem;
-    }
-    .download-launcher a {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #6236ff;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .download-launcher a:hover {
-      background: #462ac4;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0a0819;
-      color: #888;
-    }
-    @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 2rem;
-      }
-      .btn {
-        display: block;
-        margin: 1rem auto;
-      }
-    }
   </style>
 </head>
 <body>
+  <!-- Navibar für Lunox Client Webseite -->
   <header>
-    <h1>LUNOX CLIENT</h1>
+    <h1>Lunox Client</h1>
     <nav>
-      <a href="#features">Features</a>
-      <a href="#screenshots">Screenshots</a>
-      <a href="#download">Download</a>
+      <a href="#home">Home</a>
+      <div class="dropdown">
+        <a href="#settings" class="dropbtn">Einstellungen &#x25BC;</a>
+        <div class="dropdown-content">
+          <a href="#profile">Profil</a>
+          <a href="#options">Optionen</a>
+        </div>
+      </div>
+      <span id="username"></span>
+      <a href="#login" id="login-link">Login</a>
+      <a href="#logout" id="logout-link" style="display:none;">Logout</a>
     </nav>
   </header>
-
-  <section class="hero">
-    <h2>A modern Minecraft client</h2>
-    <p>FPS Boost. Clean UI. Mod Support. Designed for PvP.</p>
+  <div class="hero">
+    <h2>Willkommen beim Lunox Minecraft Client</h2>
+    <p>Dein neuer, moderner Minecraft-Launcher mit coolen Features und einfacher Bedienung.</p>
     <button class="btn btn-download">Download</button>
-    <button class="btn btn-learn">Learn More</button>
-  </section>
+    <button class="btn btn-learn">Mehr erfahren</button>
+  </div>
+  <!-- Der Rest deiner Seite bleibt wie gehabt -->
 
-  <section class="features" id="features">
-    <div class="feature">
-      <img src="https://img.icons8.com/fluency/96/rocket.png" alt="Performance" />
-      <h3>High Performance</h3>
-      <p>Boost FPS and reduce lag using optimized rendering engines.</p>
-    </div>
-    <div class="feature">
-      <img src="https://img.icons8.com/fluency/96/code.png" alt="Mods" />
-      <h3>Modding Support</h3>
-      <p>Includes built-in mods like keystrokes, CPS, toggle sprint and more.</p>
-    </div>
-    <div class="feature">
-      <img src="https://img.icons8.com/fluency/96/design.png" alt="UI" />
-      <h3>Customizable UI</h3>
-      <p>Drag and drop interface with theme and color customization.</p>
-    </div>
-  </section>
+  <script>
+    // Simulierte User-Daten (ersetze später durch echte Authentifizierung)
+    let loggedIn = false;
+    let username = "";
 
-  <section class="screenshots" id="screenshots">
-    <h2>Client Screenshots</h2>
-    <img src="https://dummyimage.com/800x450/2b2a3f/ffffff&text=Lunox+Client+Preview" alt="Client Screenshot" />
-  </section>
+    function updateNavibar() {
+      document.getElementById('login-link').style.display = loggedIn ? 'none' : 'inline';
+      document.getElementById('logout-link').style.display = loggedIn ? 'inline' : 'none';
+      document.getElementById('username').textContent = loggedIn ? `Angemeldet als: ${username}` : '';
+    }
 
-  <section class="download-launcher" id="download">
-    <h2>Download the Launcher</h2>
-    <p>Get started by downloading the Lunox Launcher for Windows, Mac or Linux.</p>
-    <a href="#">Download Lunox Launcher</a>
-  </section>
+    document.getElementById('login-link').onclick = function(e) {
+      e.preventDefault();
+      // Platzhalter: Username abfragen (später durch echtes Login ersetzen)
+      username = prompt("Gib deinen Minecraft-Benutzernamen ein:");
+      if(username) {
+        loggedIn = true;
+        updateNavibar();
+        alert('Erfolgreich eingeloggt als ' + username + '!');
+      }
+    };
 
-  <footer>
-    <p>&copy; 2025 Lunox Client. All rights reserved.</p>
-  </footer>
+    document.getElementById('logout-link').onclick = function(e) {
+      e.preventDefault();
+      loggedIn = false;
+      username = "";
+      updateNavibar();
+      alert('Du wurdest ausgeloggt!');
+    };
+
+    updateNavibar();
+  </script>
 </body>
 </html>
