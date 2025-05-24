@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lunox Client</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom, #0d0b1f, #1a1733);
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    header h1 {
+      font-size: 1.8rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #aaa;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #ccc;
+    }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      margin: 0 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s;
+    }
+    .btn-download {
+      background: #6236ff;
+      color: white;
+    }
+    .btn-learn {
+      background: transparent;
+      border: 2px solid #6236ff;
+      color: #6236ff;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background: #14102d;
+    }
+    .feature {
+      background: #1d1a3a;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-10px);
+    }
+    .feature img {
+      width: 80px;
+      margin-bottom: 1rem;
+    }
+    .feature h3 {
+      margin-bottom: 0.5rem;
+    }
+    .screenshots {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .screenshots h2 {
+      margin-bottom: 2rem;
+    }
+    .screenshots img {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .download-launcher {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .download-launcher h2 {
+      margin-bottom: 1rem;
+    }
+    .download-launcher a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #6236ff;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .download-launcher a:hover {
+      background: #462ac4;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0a0819;
+      color: #888;
+    }
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .btn {
+        display: block;
+        margin: 1rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LUNOX CLIENT</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#download">Download</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>A modern Minecraft client</h2>
+    <p>FPS Boost. Clean UI. Mod Support. Designed for PvP.</p>
+    <button class="btn btn-download">Download</button>
+    <button class="btn btn-learn">Learn More</button>
+  </section>
+
+  <section class="features" id="features">
+    <div class="feature">
+      <img src="https://img.icons8.com/fluency/96/rocket.png" alt="Performance" />
+      <h3>High Performance</h3>
+      <p>Boost FPS and reduce lag using optimized rendering engines.</p>
+    </div>
+    <div class="feature">
+      <img src="https://img.icons8.com/fluency/96/code.png" alt="Mods" />
+      <h3>Modding Support</h3>
+      <p>Includes built-in mods like keystrokes, CPS, toggle sprint and more.</p>
+    </div>
+    <div class="feature">
+      <img src="https://img.icons8.com/fluency/96/design.png" alt="UI" />
+      <h3>Customizable UI</h3>
+      <p>Drag and drop interface with theme and color customization.</p>
+    </div>
+  </section>
+
+  <section class="screenshots" id="screenshots">
+    <h2>Client Screenshots</h2>
+    <img src="https://dummyimage.com/800x450/2b2a3f/ffffff&text=Lunox+Client+Preview" alt="Client Screenshot" />
+  </section>
+
+  <section class="download-launcher" id="download">
+    <h2>Download the Launcher</h2>
+    <p>Get started by downloading the Lunox Launcher for Windows, Mac or Linux.</p>
+    <a href="#">Download Lunox Launcher</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Lunox Client. All rights reserved.</p>
+  </footer>
+</body>
+</html>
